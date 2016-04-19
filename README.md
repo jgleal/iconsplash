@@ -9,8 +9,8 @@ $ apt-get install imagemagick jp
 The config.json file contains all necesary for generate the resources. Change it if nececesary
 ```json
 {
-  "package": "PGB",
-  "output": [{
+	"package": "PGB",
+	"output": [{
 		"category": "iOS icon",
 		"description": "iOS icons",
 		"path": "resources/ios/icon",
@@ -23,22 +23,17 @@ The config.json file contains all necesary for generate the resources. Change it
 			"file": "icon-40@2x.png",
 			"width": 80,
 			"height": 80
-		}, 
-		.....
-		.....
+		}, {
+			"....": "....",
+			"....": "...."
 		}]
 	}, {
 		"category": "iOS_landscape",
 		"description": "iOS landscape splashscreens",
 		"path": "resources/ios/splash",
 		"source": "screen_land.png",
-		"sizes": [{
-			"file": "Default-Landscape-736h.png",
-			"width": 2208,
-			"height": 1242
-		}
-		.....
-		.....
+		"sizes": ["..."]
+	}]
 }
 ```
 ### Use
