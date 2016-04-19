@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# 
+# This file is part of the iconsplash distribution (https://github.com/jgleal/iconsplash).
+# Copyright (c) 2015 Liviu Ionescu.
+# 
+# This program is free software: you can redistribute it and/or modify  
+# it under the terms of the GNU General Public License as published by  
+# the Free Software Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but 
+# WITHOUT ANY WARRANTY; without even the implied warranty of 
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU 
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License 
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+#
+function program_is_installed {
+  # set to 1 initially
+  local return_=1
+  # set to 0 if not found
+  type $1 >/dev/null 2>&1 || { local return_=0; }
+  # return value
+  echo "$return_"
+}
+
+if [ $(program_is_installed jq) -gt 0 ] && [ $(program_is_installed convert) -gt 0 ]; then
+
+  function resize {
+    local source=$1
+    local path=$2
+    local file=$3
+    local width=$4
+    local height=$5
+    
+    echo "$file ${width}x${height}"
+    mkdir -p $path 
+    convert $source -resize ${width}x${height} $path/$file
+  }
+
+  lOutput=$(cat config.json | jq ".output | length")
+  for (( c=0; c<$lOutput; c++ ))
+  do
+    o=$(cat config.json | jq ".output[$c]")
+    category=$(echo $o | jq ".category" -r)
+    source=$(echo $o | jq ".source" -r)
+    path=$(echo $o | jq ".path" -r)
+    echo "==================== $category =============================="
+    lSizes=$(echo $o | jq ".sizes | length")
+    for (( i=0; i<$lSizes; i++ ))
+    do
+      s=$(echo $o | jq ".sizes[$i]")  
+      resize $source $path $(echo $s | jq ".file" -r) $(echo $s | jq ".width" -r) $(echo $s | jq ".height" -r)  
+    done 
+   
+     
+  done
+else
+  echo "
+        ***********************************************
+        **                                           **
+        **  jq and/or imagemagick are not installed  ** 
+        **                                           ** 
+        ***********************************************
+       "
+fi
