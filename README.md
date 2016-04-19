@@ -6,7 +6,7 @@ You need imagemagick and jp installed:
 $ apt-get install imagemagick jp
 ```
 ### Config
-The config.json file contains all necesary for generate the resources. Change it if nececesary
+The config.json file contains all for generate the resources. Change it if nececesary
 ```json
 {
 	"package": "PGB",
