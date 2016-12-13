@@ -35,7 +35,7 @@ if [ $(program_is_installed jq) -gt 0 ] && [ $(program_is_installed convert) -gt
     
     echo "$file ${width}x${height}"
     mkdir -p $path 
-    convert $source -resize ${width}x${height} $path/$file
+    convert $source -resize ${width}x${height}! $path/$file
   }
 
   lOutput=$(cat config.json | jq ".output | length")
