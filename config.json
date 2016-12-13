@@ -80,11 +80,11 @@
 			"width": 2208,
 			"height": 1242
 		}, {
-			"file": "Default-Landscape@2x~ipad.png",
+			"file": "Default-Landscape@2x.png",
 			"width": 2048,
 			"height": 1536
 		}, {
-			"file": "Default-Landscape~ipad.png",
+			"file": "Default-Landscape.png",
 			"width": 1024,
 			"height": 768
 		}]
@@ -94,7 +94,7 @@
 		"path": "resources/ios/splash",
 		"source": "screen.png",
 		"sizes": [{
-			"file": "Default-568h@2x~iphone.png",
+			"file": "Default-568h@2x.png",
 			"width": 640,
 			"height": 1136
 		}, {
@@ -106,19 +106,19 @@
 			"width": 1242,
 			"height": 2208
 		}, {
-			"file": "Default-Portrait@2x~ipad.png",
+			"file": "Default-Portrait@2x.png",
 			"width": 1536,
 			"height": 2048
 		}, {
-			"file": "Default-Portrait~ipad.png",
+			"file": "Default-Portrait.png",
 			"width": 768,
 			"height": 1024
 		}, {
-			"file": "Default@2x~iphone.png",
+			"file": "Default@2x.png",
 			"width": 640,
 			"height": 960
 		}, {
-			"file": "Default~iphone.png",
+			"file": "Default.png",
 			"width": 320,
 			"height": 480
 		}]
